@@ -646,56 +646,64 @@ int main()
     int i=0;
     do
     {
-        system("cls");
-        reset();
-        printf("\033[1;31m");
-        printf(" Please Enter that which type of game you want to play from the following game modes:\n");
-        printf(" 1. Play with Smart Computer\n");
-        printf(" 2. Play with Evil Computer\n");
-        printf(" 3. Play with player or your friend\n");
-        printf(" 4. Exit\n");
-        cyan();
-        if(i==0)
-        {
-            printf("\n Enter your choice key: ");
-        }
-        else if(i>0)
-        {
-            printf("\n You Entered incorrect key! Re-enter your choice key: ");
-        }
+        i=0;
+        choice=0;
         do
         {
-            choice=getch();
-            if(i>0)
+            system("cls");
+            reset();
+            printf("\033[1;31m");
+            printf(" Please Enter that which type of game you want to play from the following game modes:\n");
+            printf(" 1. Play with Smart Computer\n");
+            printf(" 2. Play with Evil Computer\n");
+            printf(" 3. Play with player or your friend\n");
+            printf(" 4. Exit\n");
+            cyan();
+            if(i==0)
             {
-                if(i>0&&choice>=49&&choice<=52)
-                break;
+                printf("\n Enter your choice key: ");
             }
-        }while(i>0);
-        i++;
-    }while(choice<49||choice>52);
+            else if(i>0)
+            {
+                printf("\n You Entered incorrect key! Re-enter your choice key: ");
+            }
+            do
+            {
+                choice=getch();
+                if(i>0)
+                {
+                    if(choice>=49&&choice<=52)
+                    break;
+                }
+            }while(i>0);
+            i++;
+        }while(choice<49||choice>52);
+        system("cls");
+        printf("\033[0;36m");
+        printf("\n################### TIC TAC TOE #########################");
+        printf("\n\n");
+        switch(choice)
+        {
+        case '1':
+            computer(choice);
+            break;
+        case '2':
+            computer(choice);
+            break;
+        case '3':
+            player();
+            break;
+        case '4':
+            yellow_bold();
+            printf("\n The game is closed by your wish. Happy Gaming!\n\n");
+            yellow();
+        }
+        printf("\033[5;33m");
+        printf("\n Press any Key to Continue.....");
+        getch();
+    }while(choice!='4');
+    reset();
     system("cls");
-    printf("\033[0;36m");
-    printf("\n################### TIC TAC TOE #########################");
-    printf("\n\n");
-    switch(choice)
-    {
-    case '1':
-        computer(choice);
-        break;
-    case '2':
-        computer(choice);
-        break;
-    case '3':
-        player();
-        break;
-    case '4':
-        yellow_bold();
-        printf("\n The game is closed by your wish. Happy Gaming!\n\n");
-        yellow();
-    }
-    printf(" Now Press any key to get exit from the Game Application.\n");
-    getch();
     return 0;
 }
 
